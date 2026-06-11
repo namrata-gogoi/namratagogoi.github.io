@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Namrata Gogoi — Information Architect | Content Strategist</title>
+  <style>
+    /* ── Reset & Base ─────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:    #1F4E79;
+      --blue:    #2E75B6;
+      --bg:      #D6E4F0;   /* uniform page background — matches image */
+      --bg-lt:   #E3EDF5;   /* slightly lighter for hero */
+      --bg-card: #C8D8E8;   /* card/panel background — slightly deeper */
+      --bg-dark: #1F4E79;   /* contact section */
+      --blue-lt: #DEEAF1;
+      --text-dk: #1A1A1A;
+      --text-md: #2C2C2C;
+      --text-lt: #3D5A73;
+      --white:   #FFFFFF;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      color: var(--text-dk);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    a { color: var(--navy); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Nav ──────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--bg-lt);
+      padding: 0 3rem;
+      display: flex; align-items: center; justify-content: flex-end;
+      height: 56px;
+      border-bottom: 1px solid var(--bg-card);
+    }
+    nav ul { list-style: none; display: flex; gap: 2.2rem; }
+    nav ul li a {
+      color: var(--navy);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    nav ul li a:hover { color: var(--blue); text-decoration: none; }
+    nav ul li a.linkedin-link { color: var(--blue); }
+
+    /* ── Sections ─────────────────────────────────── */
+    section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: .78rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--blue); margin-bottom: .4rem;
+    }
+    h2 {
+      font-size: 1.7rem; color: var(--navy); margin-bottom: 1.2rem;
+      padding-bottom: .5rem;
+      border-bottom: 3px solid var(--blue);
+    }
+
+    /* ── Hero ─────────────────────────────────────── */
+    #hero {
+      background: var(--bg-lt);
+      padding: 5rem 3rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      min-height: 520px;
+    }
+    #hero .hero-left { flex: 1; max-width: 680px; }
+    #hero h1 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 3.6rem; font-weight: 400; font-style: italic;
+      color: var(--navy); margin-bottom: .6rem; line-height: 1.1;
+    }
+    #hero .tagline {
+      font-size: .95rem; color: var(--text-dk); font-weight: 400;
+      margin-bottom: 1.8rem; padding-left: 1rem;
+      border-left: 3px solid var(--navy); letter-spacing: .2px;
+    }
+    #hero .summary {
+      font-size: 1rem; color: var(--text-dk);
+      line-height: 2; margin-bottom: 1rem;
+    }
+    .hero-stats { display: flex; gap: 2.8rem; margin-top: 1.6rem; }
+    .hero-stats .stat .num {
+      font-size: 2rem; font-weight: 800;
+      color: var(--navy); line-height: 1;
+    }
+    .hero-stats .stat .lbl {
+      font-size: .72rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--text-lt); margin-top: .2rem;
+    }
+    #hero .hero-right {
+      flex-shrink: 0; display: flex;
+      align-items: center; justify-content: center;
+    }
+    #hero .avatar-ring {
+      width: 280px; height: 280px; border-radius: 50%;
+      border: 2px dashed var(--navy);
+      background: var(--bg-card);
+      display: flex; align-items: center; justify-content: center;
+    }
+    #hero .avatar-inner {
+      width: 220px; height: 220px; border-radius: 50%;
+      background: var(--bg-card);
+      display: flex; align-items: center; justify-content: center;
+    }
+    #hero .avatar-text {
+      font-family: Georgia, serif; font-size: 3.2rem;
+      font-weight: 700; color: var(--navy);
+    }
+    .hero-btns { display: flex; gap: 1rem; margin-top: 1.8rem; }
+    .btn {
+      padding: .55rem 1.3rem; border-radius: 4px; font-size: .88rem;
+      font-weight: 600; cursor: pointer; transition: opacity .2s;
+    }
+    .btn-primary { background: var(--navy); color: #fff; }
+    .btn-outline  { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
+    .btn:hover { opacity: .82; text-decoration: none; }
+
+    /* ── Core Competencies ────────────────────────── */
+    .comp-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    .comp-table tr { border-bottom: 1px solid rgba(255,255,255,.08); }
+    .comp-table tr:last-child { border-bottom: none; }
+    .comp-table td { background: #243F60; padding: .7rem 1.1rem; font-size: .9rem; color: #DEEAF1; line-height: 1.8; }
+    .comp-table td strong { color: #FFFFFF; font-size: .78rem; letter-spacing: .5px; text-transform: uppercase; }
+
+    /* ── Signature Impact SAO cards ───────────────── */
+    #impact { background: var(--bg); padding: 4rem 2rem; }
+    #impact .inner { max-width: 1100px; margin: 0 auto; }
+    .sao-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; margin-top: 1rem; }
+    .sao-card { background: var(--bg-card); border-radius: 8px; overflow: hidden; border-left: 4px solid var(--navy); }
+    .sao-card.ia { border-left: 4px solid var(--blue); }
+    .sao-card .sao-hdr { background: var(--navy); padding: .6rem 1rem; color: #fff; font-size: .9rem; font-weight: 700; }
+    .sao-card.ia .sao-hdr { background: var(--blue); }
+    .sao-card .sao-body { padding: .9rem 1rem; }
+    .sao-row { margin-bottom: .75rem; }
+    .sao-row:last-child { margin-bottom: 0; }
+    .sao-lbl { font-size: .66rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: .2rem; }
+    .sao-s .sao-lbl { color: #7F4F24; } .sao-s { border-left: 3px solid #FFF2CC; padding-left: .55rem; }
+    .sao-a .sao-lbl { color: var(--navy); } .sao-a { border-left: 3px solid var(--blue-lt); padding-left: .55rem; }
+    .sao-o .sao-lbl { color: #375623; } .sao-o { border-left: 3px solid #E2EFDA; padding-left: .55rem; }
+    .sao-row p { font-size: .86rem; color: var(--text-dk); line-height: 1.6; }
+
+
+    #timeline { background: var(--bg); padding: 4rem 2rem; }
+    #timeline .inner { max-width: 1100px; margin: 0 auto; }
+    .timeline-item {
+      display: grid; grid-template-columns: 60px 1fr;
+      gap: 1rem; margin-bottom: 2.5rem;
+    }
+    .timeline-icon {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--navy); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; flex-shrink: 0; margin-top: .2rem;
+    }
+    .timeline-content {
+      background: var(--bg-card); border-radius: 8px;
+      padding: 1.4rem 1.6rem;
+    }
+    .timeline-period { font-size: .8rem; color: var(--text-lt); margin-bottom: .3rem; }
+    .timeline-content h3 { color: var(--navy); font-size: 1.15rem; margin-bottom: .15rem; }
+    .timeline-content .company { color: var(--blue); font-weight: 600; margin-bottom: .8rem; }
+    .timeline-content ul { padding-left: 1.2rem; }
+    .timeline-content ul li { margin-bottom: .4rem; font-size: .95rem; color: var(--text-dk); }
+    .tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .9rem; }
+    .tag {
+      background: var(--bg-lt); color: var(--navy);
+      font-size: .75rem; padding: .2rem .7rem; border-radius: 20px;
+    }
+    .doc-links { margin-top: .6rem; display: flex; flex-wrap: wrap; gap: .5rem; }
+    .doc-links a { font-size: .85rem; color: var(--blue); }
+
+    /* ── Expertise ────────────────────────────────── */
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.4rem; margin-top: 1.5rem;
+    }
+    .expertise-card {
+      background: var(--bg-card); border-radius: 8px;
+      padding: 1.4rem; border-left: 4px solid var(--navy);
+    }
+    .expertise-card .icon { font-size: 1.6rem; margin-bottom: .5rem; }
+    .expertise-card h3 { color: var(--navy); font-size: 1rem; margin-bottom: .5rem; }
+    .expertise-card p { font-size: .92rem; color: var(--text-dk); line-height: 1.6; }
+
+    /* ── Achievements ─────────────────────────────── */
+    #achievements { display: none; }
+    #achievements .inner { max-width: 1100px; margin: 0 auto; }
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.4rem; margin-top: 1.5rem;
+    }
+    .achievement-card {
+      background: var(--bg-card); border-radius: 8px; padding: 1.4rem;
+    }
+    .achievement-badge {
+      display: inline-block; font-size: .72rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      background: var(--navy); color: #fff;
+      padding: .2rem .7rem; border-radius: 20px; margin-bottom: .6rem;
+    }
+    .achievement-card h3 { color: var(--navy); font-size: 1rem; margin-bottom: .5rem; }
+    .achievement-card p, .achievement-card ul { font-size: .92rem; color: var(--text-dk); line-height: 1.6; }
+    .achievement-card ul { padding-left: 1.1rem; }
+    .achievement-card ul li { margin-bottom: .3rem; }
+
+    /* ── Skills / Tools ───────────────────────────── */
+    .tools-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.4rem; margin-top: 1.5rem;
+    }
+    .tools-card { background: var(--bg-card); border-radius: 8px; padding: 1.2rem; }
+    .tools-card h4 {
+      color: var(--navy); font-size: .9rem; font-weight: 700;
+      margin-bottom: .7rem; border-bottom: 2px solid var(--navy); padding-bottom: .3rem;
+    }
+    .tools-card ul { list-style: none; }
+    .tools-card ul li { font-size: .88rem; color: var(--text-dk); padding: .2rem 0; }
+
+    /* ── Certifications ───────────────────────────── */
+    .certs-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem; margin-top: 1.5rem;
+    }
+    .cert-card {
+      background: var(--bg-card); border-radius: 8px;
+      padding: 1rem 1.2rem; display: flex; align-items: flex-start; gap: .8rem;
+    }
+    .cert-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .cert-card span { font-size: .92rem; color: var(--text-dk); }
+
+    /* ── Contact ──────────────────────────────────── */
+    #contact { background: var(--bg); padding: 4rem 2rem; }
+    #contact .inner { max-width: 1100px; margin: 0 auto; }
+    #contact h2 { color: var(--navy); border-bottom-color: var(--navy); }
+    .contact-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.4rem; margin-top: 1.5rem;
+    }
+    .contact-card {
+      background: var(--bg-card); border-radius: 8px;
+      padding: 1.2rem; text-align: center;
+    }
+    .contact-card .icon { font-size: 1.5rem; margin-bottom: .4rem; }
+    .contact-card h4 { color: var(--navy); font-size: .95rem; font-weight: 700; margin-bottom: .3rem; }
+    .contact-card a, .contact-card p { color: var(--text-dk); font-size: .9rem; }
+    .contact-avail {
+      margin-top: 2rem; padding: 1.2rem 1.6rem;
+      background: var(--bg-card); border-radius: 8px;
+      border-left: 4px solid var(--navy);
+      font-size: .95rem; color: var(--text-dk); line-height: 1.7;
+    }
+
+    /* ── Footer ───────────────────────────────────── */
+    footer {
+      background: #143352; color: #A8C4DC;
+      text-align: center; padding: 1.2rem;
+      font-size: .82rem;
+    }
+
+    /* ── Responsive ───────────────────────────────── */
+    @media (max-width: 640px) {
+      #hero h1 { font-size: 2rem; }
+      #hero { flex-direction: column; }
+      #hero .hero-right { display: none; }
+      .hero-stats { gap: 1.2rem; }
+      nav ul { gap: .9rem; }
+      .timeline-item { grid-template-columns: 40px 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ───────────────────────────────────────────── -->
+<nav>
+  <ul>
+    <li><a href="#competencies">Core Competencies</a></li>
+    <li><a href="#impact">Signature Impact</a></li>
+    <li><a href="#timeline">Experience</a></li>
+    <li><a href="#expertise">Core Expertise</a></li>
+    <li><a href="#skills">Tools & Technology</a></li>
+    <li><a href="#learning">Learning & Development</a></li>
+    <li><a href="https://www.linkedin.com/in/namrata-gogoi-0858735/" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn ↗</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ──────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-left">
+    <h1>Namrata Gogoi</h1>
+    <p class="tagline">Information Architect &nbsp;|&nbsp; Content Strategist &nbsp;|&nbsp; Lead Technical Writer</p>
+    <p class="summary">
+      20+ years of experience leading large-scale documentation initiatives, cross-functional
+      programs, and content transformation efforts across networking &amp; security, retail and
+      telecom domains. Credited for driving documentation modernization, operational excellence,
+      quality governance, localization programs, and customer-centric content strategies while
+      partnering with Product Marketing, Engineering, UX, Support, and Leadership teams.
+    </p>
+    <p class="summary">
+      Experienced in managing documentation roadmaps, establishing governance frameworks, optimizing delivery processes,
+      and executing complex programs that improve customer experience, release readiness, content
+      discoverability, and business outcomes. Known for combining analytical rigor, operational
+      discipline, and strategic thinking to solve complex content challenges, streamline
+      documentation ecosystems, and enable scalable content operations.
+    </p>
+    <div class="hero-stats">
+      <div class="stat"><div class="num">20</div><div class="lbl">Years in IT</div></div>
+      <div class="stat"><div class="num">14+</div><div class="lbl">Years at Cisco</div></div>
+      <div class="stat"><div class="num">Networking</div><div class="lbl">&amp; Security</div></div>
+    </div>
+    <div class="hero-btns">
+      <a href="#impact" class="btn btn-primary">View Portfolio</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="avatar-ring">
+      <div class="avatar-inner">
+        <span class="avatar-text">NG</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── CORE COMPETENCIES ─────────────────────────────────── -->
+<section id="competencies">
+  <p class="section-label">Skills at a Glance</p>
+  <h2>Core Competencies</h2>
+  <table class="comp-table">
+    <tr><td><strong>Program &amp; Delivery Leadership:</strong>&nbsp; Documentation Program Management | Project Leadership | Documentation Operations | Delivery Governance | Release Readiness | Roadmap Planning | Resource Planning | Risk Mitigation</td></tr>
+    <tr><td><strong>Operational Excellence:</strong>&nbsp; Quality Management | Defect Governance | Process Improvement | Continuous Improvement | KPI Reporting | Executive Reporting | Localization Governance | Content Performance Analytics</td></tr>
+    <tr><td><strong>Stakeholder Leadership:</strong>&nbsp; Cross-Functional Collaboration | Vendor Management</td></tr>
+    <tr><td><strong>Content Strategy &amp; Information Experience:</strong>&nbsp; Content Strategy | Information Architecture | Structured Authoring | Content Governance | Customer Experience Strategy | Knowledge Management</td></tr>
+  </table>
+</section>
+
+<!-- ── SIGNATURE IMPACT ───────────────────────────────────── -->
+<div id="impact">
+  <div class="inner">
+    <p class="section-label">Evidence of Impact</p>
+    <h2>Signature Impact</h2>
+    <div class="sao-grid">
+      <div class="sao-card ia">
+        <div class="sao-hdr">🗂️ &nbsp;Information Architecture &amp; Technical Practice</div>
+        <div class="sao-body">
+          <div class="sao-row sao-s"><div class="sao-lbl">Situation</div><p>Complex security and networking documentation ecosystems requiring deep IA expertise, AI-driven workflows, and modern toolchain proficiency.</p></div>
+          <div class="sao-row sao-a"><div class="sao-lbl">Approach</div><p>Design content models, taxonomy, metadata strategies, navigation hierarchies, and structured DITA/XML authoring frameworks. Apply CI/CD documentation pipelines and GitHub-based workflows to govern documentation ecosystems at scale.</p></div>
+          <div class="sao-row sao-o"><div class="sao-lbl">Outcome</div><p>Consistent, scalable, and discoverable documentation architecture across multiple documentation deliverables.</p></div>
+        </div>
+      </div>
+      <div class="sao-card">
+        <div class="sao-hdr">📋 &nbsp;Documentation Program Leadership</div>
+        <div class="sao-body">
+          <div class="sao-row sao-s"><div class="sao-lbl">Situation</div><p>Managing multiple documentation streams, quality initiatives, localization dependencies, and release timelines across security portfolios.</p></div>
+          <div class="sao-row sao-a"><div class="sao-lbl">Approach</div><p>Led a team of technical writers and contract resources while establishing governance, planning workloads, tracking deliverables, and driving cross-functional execution.</p></div>
+          <div class="sao-row sao-o"><div class="sao-lbl">Outcome</div><p>Improved delivery predictability, strengthened quality controls, and ensured successful release execution across multiple product portfolios.</p></div>
+        </div>
+      </div>
+      <div class="sao-card">
+        <div class="sao-hdr">🔄 &nbsp;Documentation Modernization</div>
+        <div class="sao-body">
+          <div class="sao-row sao-s"><div class="sao-lbl">Situation</div><p>Legacy engineering-authored repositories, fragmented content standards, and platform limitations.</p></div>
+          <div class="sao-row sao-a"><div class="sao-lbl">Approach</div><p>Led modernization strategy, governance implementation, team enablement, and migration to enterprise-approved CMS platforms.</p></div>
+          <div class="sao-row sao-o"><div class="sao-lbl">Outcome</div><p>Delivered complete transformation within 6 months and achieved successful first-release delivery on schedule.</p></div>
+        </div>
+      </div>
+      <div class="sao-card">
+        <div class="sao-hdr">📊 &nbsp;Quality Intelligence &amp; Release Readiness</div>
+        <div class="sao-body">
+          <div class="sao-row sao-s"><div class="sao-lbl">Situation</div><p>Limited visibility into documentation-impacting customer issues and release-critical localization risks.</p></div>
+          <div class="sao-row sao-a"><div class="sao-lbl">Approach</div><p>Lead web analytics programs for documentation, deriving trends and insights to inform decisions; establish AI-driven analytics frameworks, localization governance processes, and quarterly executive reporting.</p></div>
+          <div class="sao-row sao-o"><div class="sao-lbl">Outcome</div><p>Enabled evidence-based decision-making, improved content quality, strengthened release readiness, and eliminated recurring localization risks.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CAREER TIMELINE ───────────────────────────────── -->
+<div id="timeline">
+  <div class="inner">
+    <p class="section-label">Career Timeline</p>
+    <h2>Experience</h2>
+    <p style="color:var(--text-lt); margin-bottom:2rem;">
+      A journey through four organisations across networking and security, retail, and
+      telecom domains—spanning twenty years of technical documentation.
+    </p>
+
+    <!-- Cisco -->
+    <div class="timeline-item">
+      <div class="timeline-icon">🔐</div>
+      <div class="timeline-content">
+        <div class="timeline-period">November 2011 – Present · 14+ years</div>
+        <h3>Lead Technical Writer</h3>
+        <div class="company">Cisco Systems · Bengaluru, India</div>
+        <ul>
+          <li style="font-weight:700; color:#1F4E79; list-style:none; background:#1F4E79; color:#fff; padding:.3rem .7rem; border-radius:3px; margin-bottom:.4rem;">Program Leadership &amp; Delivery</li>
+          <li>Managed documentation planning, workload allocation, delivery governance, hiring support, and capability development across a team of technical writers and contract resources.</li>
+          <li>Owned release documentation planning, stakeholder coordination, dependency tracking, localization activities, and delivery execution across multiple product releases.</li>
+          <li>Partnered with Product Management, Engineering, UX, Customer Support, and Operations teams to align documentation priorities with business objectives.</li>
+
+          <li style="font-weight:700; list-style:none; background:#1F4E79; color:#fff; padding:.3rem .7rem; border-radius:3px; margin:.6rem 0 .4rem;">Transformation &amp; Governance</li>
+          <li>Established documentation standards, review frameworks, SEO guidelines, and localization practices that improved consistency and scalability.</li>
+          <li>Enhanced product documentation discoverability through Generative AI-enabled content initiatives and information architecture improvements.</li>
+          <li>Defined content performance measures and governance processes to improve documentation effectiveness.</li>
+          <li>Delivered end-to-end documentation across network security personas — spanning Software Configuration Guides, API documentation, Integration Guides, Hardware Installation Guides, Quick Start and Troubleshooting Guides.</li>
+
+          <li style="font-weight:700; list-style:none; background:#1F4E79; color:#fff; padding:.3rem .7rem; border-radius:3px; margin:.6rem 0 .4rem;">Quality &amp; Operational Excellence</li>
+          <li>Established AI-driven Service Request and defect analytics programs that enabled data-driven prioritization of content improvements and executive decision-making.</li>
+          <li>Developed executive dashboards, quarterly analytics reports, and operational metrics supporting release readiness and strategic planning.</li>
+          <li>Automated feature-tracking and reporting workflows, improving operational efficiency and team productivity.</li>
+
+          <li style="font-weight:700; list-style:none; background:#1F4E79; color:#fff; padding:.3rem .7rem; border-radius:3px; margin:.6rem 0 .4rem;">Leadership &amp; Strategic Initiatives</li>
+          <li>Resolved release-critical localization challenges by coordinating cross-functional remediation efforts and establishing governance workflows that improved release predictability.</li>
+          <li>Authored customer-focused use cases demonstrating real-world application of security solutions.</li>
+          <li>Created AI-assisted multimedia and customer enablement content that extended documentation beyond traditional publications.</li>
+          <li>Mentored writers, participated in hiring initiatives, and presented thought leadership papers at STC conferences and Cisco forums.</li>
+        </ul>
+        <div class="doc-links">
+          <a href="https://www.cisco.com/c/en/us/td/docs/security/workload_security/secure_workload/integration/fmc/cisco-secure-workload-and-fmc-integration-guide.html" target="_blank">📄 Secure Workload &amp; FMC Integration Guide</a>
+          <a href="https://www.cisco.com/c/en/us/td/docs/security/workload_security/secure_workload/migration-guide/cisco-secure-workload-migration-guide.html" target="_blank">📄 Cisco Secure Workload Migration Guide</a>
+          <a href="https://www.cisco.com/c/en/us/td/docs/security/workload_security/secure_workload/user-guide/4_0/cisco-secure-workload-user-guide-on-prem-v40/m-aci-integration-with-secure-workload.html" target="_blank">📄 Secure Workload &amp; ACI Integration</a>
+        </div>
+        <div class="tags">
+          <span class="tag">Information Architecture</span>
+          <span class="tag">Network Security</span>
+          <span class="tag">DITA/XML</span>
+          <span class="tag">AI-Assisted Writing</span>
+          <span class="tag">AEM/WEM</span>
+          <span class="tag">Oxygen XML</span>
+          <span class="tag">Content Strategy</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Symphony -->
+    <div class="timeline-item">
+      <div class="timeline-icon">🌐</div>
+      <div class="timeline-content">
+        <div class="timeline-period">October 2009 – November 2011 · 2 years</div>
+        <h3>Technical Writer</h3>
+        <div class="company">Symphony Services · Bengaluru, India</div>
+        <ul>
+          <li>Author, update, and maintain technical documents for retail solutions.</li>
+          <li>Develop product feature presentations for review sessions.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Retail Solutions</span>
+          <span class="tag">CLI Documentation</span>
+          <span class="tag">Product Overviews</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Integra -->
+    <div class="timeline-item">
+      <div class="timeline-icon">📱</div>
+      <div class="timeline-content">
+        <div class="timeline-period">April 2006 – July 2008 · 2 years</div>
+        <h3>Technical Writer</h3>
+        <div class="company">Integra Micro Systems · Bengaluru, India</div>
+        <ul>
+          <li>Coordinate localization of technical manuals into <strong>10 languages</strong> across Europe, South Asia, and Middle-East markets.</li>
+          <li>Author, update, and maintain technical documents for mobile phones (Motorola), including rugged mobile phones (SONIM Technologies).</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- NIIT — hidden for now -->
+    <div class="timeline-item" style="display:none;">
+      <div class="timeline-icon">🏨</div>
+      <div class="timeline-content">
+        <div class="timeline-period">Pre-2006</div>
+        <h3>Business Development Manager</h3>
+        <div class="company">NIIT, Guwahati</div>
+        <ul>
+          <li>Built client relationships and business communication skills that became the foundation for technical writing excellence.</li>
+          <li>Developed the ability to distil complex propositions into clear, persuasive narratives.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Business Development</span>
+          <span class="tag">Client Relations</span>
+          <span class="tag">Communication</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── CORE EXPERTISE ─────────────────────────────────── -->
+<section id="expertise">
+  <p class="section-label">What I Bring</p>
+  <h2>Core Expertise</h2>
+  <p style="color:var(--text-lt); margin-bottom:.5rem;">
+    A blend of deep technical knowledge, strategic thinking, and creative execution — built over twenty years in the field.
+  </p>
+  <div class="expertise-grid">
+
+    <div class="expertise-card">
+      <div class="icon">🗂️</div>
+      <h3>Information Architecture</h3>
+      <p>Design and govern documentation architectures—defining content models, taxonomy, metadata strategies, and navigation hierarchies that enable consistent information architecture across multiple product documentation sets. Specialize in single-sourcing, modular content design, and structured authoring for complex security and networking products. Experienced with CI/CD documentation pipelines.</p>
+    </div>
+
+    <div class="expertise-card">
+      <div class="icon">🛠️</div>
+      <h3>Tools &amp; Content Management Systems</h3>
+      <p>Work with AEM/WEM, Astoria, Oxygen XML, Confluence, SharePoint, and JIRA — experienced with CCMS platforms, Git-based workflows, and CI/CD documentation pipelines to drive toolchain improvements, metadata governance, and version control.</p>
+    </div>
+
+    <div class="expertise-card">
+      <div class="icon">⚙️</div>
+      <h3>Content Strategy &amp; SEO</h3>
+      <p>Define and lead SEO writing guidelines for English and internationalized content; leverage generative AI to enhance the product documentation hub—improving metadata tagging, content structure, and content findability.</p>
+    </div>
+
+    <div class="expertise-card">
+      <div class="icon">✍️</div>
+      <h3>Technical Documentation</h3>
+      <p>Own end-to-end delivery of CLI/GUI guides, XML API docs, hardware installation guides, quick start guides, and troubleshooting content across networking and security domains.</p>
+    </div>
+
+    <div class="expertise-card">
+      <div class="icon">🔌</div>
+      <h3>API &amp; Developer Docs</h3>
+      <p>Good knowledge of version control systems (GitHub), and software development processes and methodologies — enabling effective collaboration with engineering teams.</p>
+    </div>
+
+    <div class="expertise-card">
+      <div class="icon">🤖</div>
+      <h3>AI-Assisted Documentation</h3>
+      <p>Explore and integrate AI tools to streamline content creation. Apply AI-driven service request analysis to identify documentation gaps across multiple products, and contribute to the Enhanced Product Documentation Hub using Generative AI.</p>
+    </div>
+
+    <div class="expertise-card">
+      <div class="icon">📊</div>
+      <h3>Quality &amp; Analytics</h3>
+      <p>Conduct systematic quality analysis of defects and service requests across multiple products — turning data into documentation improvements, reducing defect rates and resolution times.</p>
+    </div>
+
+    <div class="expertise-card">
+      <div class="icon">🎬</div>
+      <h3>Multimedia Content</h3>
+      <p>Storyboard and create conceptual videos and augmented reality experiences for end users. Tools: Lumen5, Camtasia, Adobe Rush, SnagIt, Miro, and Figma.</p>
+    </div>
+
+    <div class="expertise-card">
+      <div class="icon">🌍</div>
+      <h3>Localization</h3>
+      <p>Coordinate localization of technical manuals into 10 languages across Europe, South Asia, and the Middle East. Train writers on SEO and localization guidelines.</p>
+    </div>
+
+    <div class="expertise-card">
+      <div class="icon">👥</div>
+      <h3>Leadership &amp; Mentoring</h3>
+      <p>Mentor junior writers, drive process transformations, participate in hiring, and present at national-level STC conferences. Cisco Certified Interviewer — Specialist.</p>
+    </div>
+
+    <div class="expertise-card">
+      <div class="icon">📐</div>
+      <h3>Structured Content (DITA)</h3>
+      <p>Apply DITA-based structured authoring, content reuse strategies, modular content design, single-sourcing, and docs-as-code using AI workflows.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── ACHIEVEMENTS ───────────────────────────────────── -->
+<div id="achievements">
+  <div class="inner">
+    <p class="section-label">Highlights</p>
+    <h2>Key Achievements</h2>
+    <p style="color:var(--text-lt); margin-bottom:.5rem;">
+      Initiatives and accomplishments that go beyond the page — showing the analytical, strategic, and creative dimensions of my work.
+    </p>
+    <div class="achievements-grid">
+
+      <div class="achievement-card">
+        <span class="achievement-badge">Quality Initiative</span>
+        <h3>AI-Driven Service Request (SR) Analysis</h3>
+        <p>As Quality champion, analyse Service Requests and documentation defects for multiple products, identifying cases with direct documentation impact — enabling evidence-based prioritisation of content fixes. Report and present findings to management on a quarterly basis.</p>
+      </div>
+
+      <div class="achievement-card">
+        <span class="achievement-badge">Process Improvement</span>
+        <h3>Defect Management Programme</h3>
+        <p>Conduct systematic quality analysis of defects and service requests across multiple products, generating weekly reports that identify recurring patterns, drive process improvements, and reduce defect rates and resolution times.</p>
+      </div>
+
+      <div class="achievement-card">
+        <span class="achievement-badge">Content Strategy</span>
+        <h3>Documentation Architecture &amp; Modernisation</h3>
+        <p>Design and govern documentation architectures for Cisco's network security portfolio — defining content models, taxonomy, metadata, and navigation hierarchies. Pioneer the transformation of legacy security documentation to Cisco writing guidelines, enhancing user experience and content accessibility.</p>
+      </div>
+
+      <div class="achievement-card">
+        <span class="achievement-badge">Automation</span>
+        <h3>Feature Tracking System Automation</h3>
+        <p>Implement a process to automatically update an internal feature tracking system by reading data from a SharePoint worksheet application — adopted by the entire documentation team and well-received by cross-functional stakeholders.</p>
+      </div>
+
+      <div class="achievement-card">
+        <span class="achievement-badge">Multimedia</span>
+        <h3>Conceptual Videos</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=u7jh3Zw1hlg" target="_blank">▶ ACI Integration</a></li>
+          <li><a href="https://www.youtube.com/watch?v=UwUJnEMZoTk" target="_blank">▶ AI Policy Suggestions</a></li>
+          <li><a href="https://www.youtube.com/watch?v=kvnAoT5ZYXI" target="_blank">▶ Policy Statistics – Workload AI Engine</a></li>
+          <li><a href="https://www.youtube.com/watch?v=UVTkxaUJSHA" target="_blank">▶ Managing in Security Cloud Control</a></li>
+          <li><a href="https://www.youtube.com/watch?v=CGeLQTWKaPQ" target="_blank">▶ Enabling Umbrella Branch on Cisco 4000 Series ISRs</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ── TOOLS & SKILLS ─────────────────────────────────── -->
+<section id="skills" style="background:var(--bg); max-width:100%; padding:4rem 2rem;">
+  <div style="max-width:1100px; margin:0 auto;">
+    <p class="section-label">Tools &amp; Technologies</p>
+    <h2>Tools &amp; Technology</h2>
+    <p style="color:var(--text-lt); margin-bottom:.5rem;">A broad toolkit built across two decades of technical writing and content strategy.</p>
+    <div class="tools-grid">
+      <div class="tools-card">
+        <h4>Collaboration &amp; Tracking</h4>
+        <ul>
+          <li>Jira</li>
+          <li>AI-driven SR Analysis</li>
+          <li>Microsoft 365</li>
+          <li>Google Workspace</li>
+          <li>Miro</li>
+          <li>Figma</li>
+        </ul>
+      </div>
+      <div class="tools-card">
+        <h4>Authoring</h4>
+        <ul>
+          <li>Oxygen XML Editor</li>
+          <li>XMetal Author</li>
+          <li>HTML · XML · Markdown</li>
+          <li>Arbortext Epic Editor</li>
+          <li>Adobe FrameMaker</li>
+          <li>RoboHelp</li>
+        </ul>
+      </div>
+      <div class="tools-card">
+        <h4>Content Management</h4>
+        <ul>
+          <li>AEM / WEM</li>
+          <li>GitHub (working knowledge)</li>
+          <li>Astoria</li>
+          <li>Confluence</li>
+          <li>SharePoint</li>
+          <li>Tableau (Beginner)</li>
+        </ul>
+      </div>
+      <div class="tools-card">
+        <h4>Multimedia &amp; AI</h4>
+        <ul>
+          <li>Lumen5</li>
+          <li>Camtasia</li>
+          <li>Adobe Rush</li>
+          <li>SnagIt</li>
+          <li>AI Writing &amp; Review Tools</li>
+          <li>Enhanced Docs Hub (GenAI)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LEARNING & DEVELOPMENT ─────────────────────────────── -->
+<section id="learning">
+  <p class="section-label">Qualifications &amp; Professional Development</p>
+  <h2>Learning &amp; Development</h2>
+
+  <!-- Academic Qualifications sub-section -->
+  <p style="font-size:.78rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--navy); margin:1.2rem 0 .8rem;">Academic Qualifications</p>
+  <div class="tools-grid">
+    <div class="tools-card">
+      <h4>MBA — Sales &amp; Marketing</h4>
+      <ul><li>Tezpur Central University, Assam</li></ul>
+    </div>
+    <div class="tools-card">
+      <h4>B.Sc. — Economics (Hons), Statistics &amp; Mathematics</h4>
+      <ul><li>Gauhati University, Assam</li></ul>
+    </div>
+  </div>
+
+  <!-- Certifications & Training sub-section -->
+  <p style="font-size:.78rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--navy); margin:1.8rem 0 .8rem;">Certifications &amp; Training</p>
+  <div class="certs-grid">
+    <div class="cert-card"><div class="cert-icon">🎨</div><span>UX Design Process: Empathize, Define &amp; Ideate (Google)</span></div>
+    <div class="cert-card"><div class="cert-icon">🤖</div><span>Generative AI White Belt (Cisco)</span></div>
+    <div class="cert-card"><div class="cert-icon">🟢</div><span>Generative AI Green Belt (Cisco)</span></div>
+    <div class="cert-card"><div class="cert-icon">🛡️</div><span>Security Ninja Green Belt (Cisco)</span></div>
+    <div class="cert-card"><div class="cert-icon">🎓</div><span>Cisco Certified Interviewer — Specialist</span></div>
+    <div class="cert-card"><div class="cert-icon">👩‍💼</div><span>JUMP Women's Leadership Training (Cisco)</span></div>
+    <div class="cert-card"><div class="cert-icon">📐</div><span>Structured Content Writing</span></div>
+    <div class="cert-card"><div class="cert-icon">📊</div><span>Web Analytics</span></div>
+    <div class="cert-card"><div class="cert-icon">🌐</div><span>Comer Series — Networking Fundamentals (Cisco)</span></div>
+  </div>
+</section>
+
+<!-- ── CONTACT ────────────────────────────────────────── -->
+<div id="contact">
+  <div class="inner">
+    <p class="section-label">Get in Touch</p>
+    <h2>Let's Work Together</h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="icon" style="color:var(--navy); font-size:1.6rem;">&#9993;</div>
+        <h4>Email</h4>
+        <a href="mailto:namratagogoi@gmail.com">namratagogoi@gmail.com</a>
+      </div>
+      <div class="contact-card">
+        <div class="icon">📱</div>
+        <h4>Phone</h4>
+        <p>+91 92427 67023</p>
+      </div>
+      <div class="contact-card">
+        <div class="icon">🔗</div>
+        <h4><a href="https://www.linkedin.com/in/namrata-gogoi-0858735/" target="_blank" rel="noopener noreferrer" style="color:var(--navy);">LinkedIn</a></h4>
+      </div>
+      <div class="contact-card" style="display:none;">
+        <div class="icon">🌐</div>
+        <h4>Portfolio</h4>
+        <a href="https://namrata-gogoi.github.io/" target="_blank">namrata-gogoi.github.io</a>
+      </div>
+      <div class="contact-card">
+        <div class="icon">📍</div>
+        <h4>Location</h4>
+        <p>Bengaluru, India</p>
+      </div>
+    </div>
+    <div class="contact-avail">
+      I'm currently open to senior opportunities in Information Architecture, Content Strategy,
+      and Technical Writing — particularly roles where documentation structure, content governance,
+      and user experience intersect.<br><br>
+      Whether you're hiring, collaborating, or just want to talk — I'd love to hear from you.
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ─────────────────────────────────────────── -->
+<footer>
+  © 2026 Namrata Gogoi &nbsp;·&nbsp; Information Architect | Content Strategist &nbsp;·&nbsp; Bengaluru, India
+</footer>
+
+</body>
+</html>
